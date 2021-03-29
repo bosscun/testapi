@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "sourceMap": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "noImplicitAny": false
+  },
+  "exclude": [
+    "codegen/api/angular"
+  ]
+}

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  api-staging:
+    kind: StatefulSet
+    image: registry.ql6625.fr/fr_ql6625_testapi:1.0.0
+    environment:
+      NODE_ENV: staging
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MYSQL_URI : "mysql://root:ynYxU8PNTL@mysql.be-database.svc.cluster.local/testapi"
+    deploy:
+      placement:
+      labels:
+        - 'traefik.frontend.rule=Host:api.testing.ql6625.live'
+        - 'traefik.port=3000'
+        - 'traefik.cluster-issuer=letsencrypt-prod'
+    volumes:
+      - colvemat-storage-staging:/home/node/app/uploads
+    imagePullSecrets: regcred
+    imagePullPolicy: Always
+    Ingress:
+      default:
+        metadata:
+          annotations:
+            nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  redis:
+    image: redis:6
+    expose:
+      - 6379:6379
+volumes:
+  colvemat-storage-staging:
+    storage: 1Gi

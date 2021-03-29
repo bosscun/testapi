@@ -1,0 +1,16 @@
+{
+  "db": {
+    "url": "mysql://root:ynYxU8PNTL@188.166.205.198/testapi",
+    "name": "db",
+    "connector": "mysql",
+    "maxOfflineRequests": 50
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./uploads",
+    "nameConflict": "makeUnique",
+    "maxFileSize": "104857600"
+  }
+}

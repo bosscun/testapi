@@ -1,0 +1,44 @@
+{
+  "name": "Message",
+  "base": "Model",
+  "mixins": {
+    "TimeStamp": {
+      "required": false,
+      "validateUpsert": true
+    }
+  },
+  "properties": {
+    "content": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "conversation": {
+      "type": "belongsTo",
+      "model": "Conversation",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {
+    "greet": {
+      "accepts": [
+        {
+          "arg": "msg",
+          "type": "string",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "greeting",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get"
+      }
+    }
+  }
+}

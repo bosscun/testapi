@@ -1,0 +1,19 @@
+{
+  "name": "Conversation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

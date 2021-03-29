@@ -1,0 +1,17 @@
+.DS_Store
+.idea
+.project
+.strong-pm
+node_modules
+npm-debug.log
+.idea
+uploads
+codegen/*
+!codegen/api/fetch
+.git
+.gitlab-ci.yml
+.dockerignore
+Dockerfile
+docker-compose*.yml
+Makefile
+stack*.yml
