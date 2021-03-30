@@ -522,7 +522,7 @@
         "affectsGlobalScope": true
       },
       "./server/boot/seed.ts": {
-        "version": "bedad61c444fa56b6bb834ee3b9aa3301785d4c73805ab63b734cd0e7a972045",
+        "version": "17e4ee2df88089efdecc8d7abc9e8939bae88efbc6c9949c79bdedb91595034c",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },

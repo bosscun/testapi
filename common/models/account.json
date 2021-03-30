@@ -25,7 +25,19 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccountToken",
+      "foreignKey": "userId"
+    },
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

@@ -16,7 +16,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -38,7 +39,8 @@
     "public": false
   },
   "Message": {
-    "dataSource": null
+    "dataSource": "db",
+    "public": true
   },
   "Product": {
     "dataSource": "db",

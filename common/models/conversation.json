@@ -5,7 +5,14 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean"
+    }
+  },
   "validations": [],
   "relations": {
     "messages": {

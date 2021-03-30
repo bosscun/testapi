@@ -1,6 +1,6 @@
 {
   "name": "AccountToken",
-  "base": "User",
+  "base": "AccessToken",
   "idInjection": true,
   "options": {
     "validateUpsert": true

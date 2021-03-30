@@ -1,0 +1,16 @@
+{
+  "db": {
+    "url": "${MYSQL_URI}",
+    "name": "db",
+    "connector": "mysql",
+    "maxOfflineRequests": 50
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./uploads",
+    "nameConflict": "makeUnique",
+    "maxFileSize": "104857600"
+  }
+}

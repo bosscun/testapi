@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const _ = require("lodash");
 module.exports = function (app) {
     const withoutId = (it) => Object.assign({}, it, { id: undefined });
     const automigrate = (dataSource) => (model) => {
@@ -24,7 +23,7 @@ module.exports = function (app) {
         });
     };
     (async () => {
-        const [Account, AccountToken, ACL, RoleMapping, Role, Category, Product, News] = await Promise.all([
+        const [Account, AccountToken, ACL, RoleMapping, Role, Category, Product, News,] = await Promise.all([
             'Account',
             'AccountToken',
             'ACL',
@@ -33,9 +32,7 @@ module.exports = function (app) {
             'Category',
             'Product',
             'News'
-        ].map(_.includes(['production', 'staging'], process.env.NODE_ENV)
-            ? autoupdate('db')
-            : automigrate('db')));
+        ].map(autoupdate('db')));
         const application = {
             id: 'link.bfast.colvemat',
             userId: 'linktohack',

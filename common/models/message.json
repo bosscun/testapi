@@ -1,6 +1,6 @@
 {
   "name": "Message",
-  "base": "Model",
+  "base": "PersistedModel",
   "mixins": {
     "TimeStamp": {
       "required": false,
@@ -9,6 +9,9 @@
   },
   "properties": {
     "content": {
+      "type": "string"
+    },
+    "status": {
       "type": "string"
     }
   },

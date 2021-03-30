@@ -35,8 +35,7 @@ module.exports = function (app: App) {
       Role,
       Category,
       Product,
-      News
-
+      News,
     ] = await Promise.all([
       'Account',
       'AccountToken',
@@ -46,9 +45,7 @@ module.exports = function (app: App) {
       'Category',
       'Product',
       'News'
-    ].map(_.includes(['production', 'staging'], process.env.NODE_ENV)
-      ? autoupdate('db')
-      : automigrate('db')));
+    ].map(autoupdate('db')));
 
     const application = {
       id: 'link.bfast.colvemat',
