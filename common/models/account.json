@@ -12,17 +12,6 @@
     }
   },
   "properties": {
-    "accessTokens": {
-      "type": "hasMany",
-      "model": "AccountToken",
-      "foreignKey": "userId"
-    },
-    "roles": {
-      "type": "hasMany",
-      "model": "Role",
-      "foreignKey": "principalId",
-      "through": "RoleMapping"
-    }
   },
   "validations": [],
   "relations": {

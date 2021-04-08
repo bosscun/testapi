@@ -1,9 +1,10 @@
 /* tslint:disable */
+import {
+  AccountToken
+} from '../index';
 
 declare var Object: any;
 export interface AccountInterface {
-  "accessTokens"?: any;
-  "roles"?: any;
   "realm"?: string;
   "username"?: string;
   "email": string;
@@ -12,12 +13,11 @@ export interface AccountInterface {
   "createdAt"?: Date;
   "updatedAt"?: Date;
   "password"?: string;
-  accessTokens?: any[];
+  roles?: any[];
+  accessTokens?: AccountToken[];
 }
 
 export class Account implements AccountInterface {
-  "accessTokens": any;
-  "roles": any;
   "realm": string;
   "username": string;
   "email": string;
@@ -26,7 +26,8 @@ export class Account implements AccountInterface {
   "createdAt": Date;
   "updatedAt": Date;
   "password": string;
-  accessTokens: any[];
+  roles: any[];
+  accessTokens: AccountToken[];
   constructor(data?: AccountInterface) {
     Object.assign(this, data);
   }
@@ -60,14 +61,6 @@ export class Account implements AccountInterface {
       path: 'Accounts',
       idName: 'id',
       properties: {
-        "accessTokens": {
-          name: 'accessTokens',
-          type: 'any'
-        },
-        "roles": {
-          name: 'roles',
-          type: 'any'
-        },
         "realm": {
           name: 'realm',
           type: 'string'
@@ -102,10 +95,20 @@ export class Account implements AccountInterface {
         },
       },
       relations: {
-        accessTokens: {
-          name: 'accessTokens',
+        roles: {
+          name: 'roles',
           type: 'any[]',
           model: '',
+          relationType: 'hasMany',
+          modelThrough: 'RoleMapping',
+          keyThrough: 'roleId',
+          keyFrom: 'id',
+          keyTo: 'principalId'
+        },
+        accessTokens: {
+          name: 'accessTokens',
+          type: 'AccountToken[]',
+          model: 'AccountToken',
           relationType: 'hasMany',
                   keyFrom: 'id',
           keyTo: 'userId'

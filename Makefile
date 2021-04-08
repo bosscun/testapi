@@ -13,8 +13,7 @@ codegen-export:
 		patch < def.patch
 codegen-angular:
 	# angular
-	yes | ./node_modules/.bin/lb-sdk server/server.ts codegen/api/angular \
-	  && cp -v ./common/helpers/shared-constants.ts ./codegen/api/angular
+	yes | ./node_modules/.bin/lb-sdk server/server.ts codegen/api/angular
 
 codegen-fetch: codegen-export
 	# fetch

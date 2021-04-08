@@ -1,14 +1,27 @@
 /* tslint:disable */
+import {
+  Conversation
+} from '../index';
 
 declare var Object: any;
 export interface MessageInterface {
   "content"?: string;
+  "status"?: string;
   "id"?: number;
+  "createdAt"?: Date;
+  "updatedAt"?: Date;
+  "conversationId"?: number;
+  conversation?: Conversation;
 }
 
 export class Message implements MessageInterface {
   "content": string;
+  "status": string;
   "id": number;
+  "createdAt": Date;
+  "updatedAt": Date;
+  "conversationId": number;
+  conversation: Conversation;
   constructor(data?: MessageInterface) {
     Object.assign(this, data);
   }
@@ -46,12 +59,36 @@ export class Message implements MessageInterface {
           name: 'content',
           type: 'string'
         },
+        "status": {
+          name: 'status',
+          type: 'string'
+        },
         "id": {
           name: 'id',
           type: 'number'
         },
+        "createdAt": {
+          name: 'createdAt',
+          type: 'Date'
+        },
+        "updatedAt": {
+          name: 'updatedAt',
+          type: 'Date'
+        },
+        "conversationId": {
+          name: 'conversationId',
+          type: 'number'
+        },
       },
       relations: {
+        conversation: {
+          name: 'conversation',
+          type: 'Conversation',
+          model: 'Conversation',
+          relationType: 'belongsTo',
+                  keyFrom: 'conversationId',
+          keyTo: 'id'
+        },
       }
     }
   }

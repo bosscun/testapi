@@ -48,7 +48,6 @@ import { SocketBrowser } from './sockets/socket.browser';
 import { SocketDriver } from './sockets/socket.driver';
 import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
-import { UserApi } from './services/custom/User';
 import { MessageApi } from './services/custom/Message';
 import { ProductApi } from './services/custom/Product';
 import { NewsApi } from './services/custom/News';
@@ -86,7 +85,6 @@ export class SDKBrowserModule {
         LoggerService,
         SDKModels,
         RealTime,
-        UserApi,
         MessageApi,
         ProductApi,
         NewsApi,

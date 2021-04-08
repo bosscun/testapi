@@ -5,26 +5,20 @@ import {
 
 declare var Object: any;
 export interface AccountTokenInterface {
-  "realm"?: string;
-  "username"?: string;
-  "email": string;
-  "emailVerified"?: boolean;
-  "id"?: number;
+  "id"?: string;
+  "ttl"?: number;
+  "scopes"?: Array<any>;
+  "created"?: Date;
   "userId"?: number;
-  "password"?: string;
-  accessTokens?: any[];
   user?: Account;
 }
 
 export class AccountToken implements AccountTokenInterface {
-  "realm": string;
-  "username": string;
-  "email": string;
-  "emailVerified": boolean;
-  "id": number;
+  "id": string;
+  "ttl": number;
+  "scopes": Array<any>;
+  "created": Date;
   "userId": number;
-  "password": string;
-  accessTokens: any[];
   user: Account;
   constructor(data?: AccountTokenInterface) {
     Object.assign(this, data);
@@ -59,44 +53,29 @@ export class AccountToken implements AccountTokenInterface {
       path: 'AccountTokens',
       idName: 'id',
       properties: {
-        "realm": {
-          name: 'realm',
-          type: 'string'
-        },
-        "username": {
-          name: 'username',
-          type: 'string'
-        },
-        "email": {
-          name: 'email',
-          type: 'string'
-        },
-        "emailVerified": {
-          name: 'emailVerified',
-          type: 'boolean'
-        },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'string'
+        },
+        "ttl": {
+          name: 'ttl',
+          type: 'number',
+          default: 1209600
+        },
+        "scopes": {
+          name: 'scopes',
+          type: 'Array&lt;any&gt;'
+        },
+        "created": {
+          name: 'created',
+          type: 'Date'
         },
         "userId": {
           name: 'userId',
           type: 'number'
         },
-        "password": {
-          name: 'password',
-          type: 'string'
-        },
       },
       relations: {
-        accessTokens: {
-          name: 'accessTokens',
-          type: 'any[]',
-          model: '',
-          relationType: 'hasMany',
-                  keyFrom: 'id',
-          keyTo: 'userId'
-        },
         user: {
           name: 'user',
           type: 'Account',
